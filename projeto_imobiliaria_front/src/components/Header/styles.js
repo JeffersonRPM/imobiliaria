@@ -8,6 +8,10 @@ export const Container = styled.div`
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     background-color: var(--white);
+
+    a {
+        color: var(--black);
+    }
 `
 
 export const Logo = styled.div`

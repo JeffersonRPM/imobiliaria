@@ -10,8 +10,10 @@ export default createGlobalStyle`
     :root {
         --primary: #f7f9fc;
         --gray: #d9d9d9;
+        --light-gray: #f0f2f5;
         --black: #000000;
         --white: #ffffff;
+        --green: #42b72a;
     }
 
     body {
