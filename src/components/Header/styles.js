@@ -43,11 +43,12 @@ export const Menu = styled.div`
         justify-content: center;
         cursor: pointer;
         border: 1px solid var(--gray);
-        border-radius: 10px;
+        border-radius: 5px;
         padding: 7px 10px;
 
         &:hover {
             background-color: var(--gray);
+            transition: all 300ms ease-in-out;
         }
     }
    

@@ -21,9 +21,9 @@ export const Img = styled.div`
 
 export const Description = styled.div`
     padding: 12px;
-    
+
     a {
-        color:  var(--secondary);
+        color: var(--black);
     }
 
     h4 {
@@ -48,7 +48,7 @@ export const Description = styled.div`
     }
 `
 
-export const Itens = styled.div`
+export const Item = styled.div`
     display: flex;
     justify-content: flex-start;
     flex-direction: column;

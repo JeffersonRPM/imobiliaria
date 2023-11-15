@@ -9,7 +9,6 @@ export default createGlobalStyle`
 
     :root {
         --primary: #f7f9fc;
-        --secondary: #15181c;
         --gray: #d9d9d9;
         --black: #000000;
         --white: #ffffff;
@@ -17,7 +16,7 @@ export default createGlobalStyle`
 
     body {
         background-color: var(--primary);
-        color: var(--secondary);
+        color: var(--black);
         font-family: 'Open Sans', sans-serif;
         font-size: 1.2rem;
         font-weight: 400;
@@ -30,6 +29,4 @@ export default createGlobalStyle`
     a {
         text-decoration: none;
     }
-
-
 `;

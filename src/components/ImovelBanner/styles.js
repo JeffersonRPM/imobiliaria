@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import BgCover from "../../assets/bg-cover.jpg"
+import BgCover from '../../assets/bg-cover.jpg'
 
 export const Container = styled.div`
-    padding: 200px 150px;
+    padding: 50px 150px;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -36,23 +36,5 @@ export const Text = styled.div`
         color: var(--white);
         margin-bottom: 25px;
         font-weight: 700;
-    }
-
-    span {
-        background-color: var(--black);
-        border: 0;
-        border-radius: 5px;
-        color: var(--white);
-        font-size: 0.875rem;
-        font-weight: 700;
-        padding: 12px 20px;
-        line-height: 24px;
-        cursor: pointer;
-
-        &:hover {
-            background-color: var(--gray);
-            color: var(--black);
-            transition: all 300ms ease-in-out;
-        }
     }
 `
