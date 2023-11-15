@@ -34,7 +34,7 @@ export const Item = styled.div`
         border-radius: 50%;
 
         &:hover {
-            background-color: var(--white);
+            background-color: var(--primary);
             transition: all 300ms ease-in-out;
         }
     }

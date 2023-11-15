@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
-import { Container, Description, Left, Profile, ProfileContact, ProfileDescription, ProfileFormContact, ProfileImg, Right, Thumb } from "./styles";
+import { Container, Description, Left, Profile, ProfileContact, ProfileFormContact, ProfileImg, Right, Thumb } from "./styles";
 import ImovelBanner from '../../components/ImovelBanner';
 import Card from '../../assets/card.jpg'
 import Perfil from '../../assets/perfil.png'
-
+import Input from '../../components/Input'
+import TextArea from '../../components/TextArea'
+import Button from '../../components/Button'
 
 const Imovel = () => {
     return (
@@ -51,10 +53,10 @@ const Imovel = () => {
                     <ProfileFormContact>
                         <h3>Contate o anunciante</h3>
                         <form>
-                            <input type="text" placeholder='Nome: ' maxlength="40"/>
-                            <input type="text" placeholder='E-mail: ' maxlength="40"/>
-                            <textarea name="" id="" cols="30" rows="10" placeholder='Mensagem: ' maxlength="800"></textarea>
-                            <button>Enviar mensagem</button>
+                            <Input type="text" placeholder='Nome' maxlength="40"/>
+                            <Input type="text" placeholder='E-mail' maxlength="40"/>
+                            <TextArea name="" id="" cols="30" rows="10" placeholder='Mensagem' maxlength="800"/>
+                            <Button>Enviar mensagem</Button>
                         </form>
                     </ProfileFormContact>
                 </Right>
