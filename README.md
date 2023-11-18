@@ -8,6 +8,11 @@ npm start
 yarn dev
 ```
 
+## Gerar db Prisma
+```
+yarn prisma migrate dev
+```
+
 ## Extensões VS Code
 * `Auto import`
 * `Axios Snippets`
