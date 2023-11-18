@@ -10,8 +10,8 @@ const Login = () => {
             <ContainerForm>
                 <h2>Login</h2>
                 <Form>
-                    <Input type="text" placeholder='E-mail ' maxlength="35" />
-                    <Input type="text" placeholder='Senha ' maxlength="35" />
+                    <Input type="text" placeholder='E-mail ' maxlength="35" required />
+                    <Input type="text" placeholder='Senha ' maxlength="35" required />
                     <Button>Entrar</Button>
                     <Link to='/cadastro'>
                         <button className='new-account'>Criar nova conta</button>
