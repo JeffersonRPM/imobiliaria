@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 export default {
     async createImovel(request, response) {
         try {
+            const thumb = request.file.filename;
             const { id, tipo, endereco, cidade, uf, valor, descricao } = request.body;
             const user = await prisma.user.findUnique({ where: { id: Number(id) } });
 
@@ -14,6 +15,7 @@ export default {
 
             const imovel = await prisma.imovel.create({
                 data: {
+                    thumb,
                     tipo,
                     endereco,
                     cidade,
