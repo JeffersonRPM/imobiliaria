@@ -1,3 +1,6 @@
+## Diagrama Entidade Relacionamento no MySQL
+<img align="center" alt="Diagrama Entidade Relacionamento no MySQL" src="./doc-img-git/entidade-relacionamento.png">
+
 ## Iniciar o front-end
 ```
 npm start
