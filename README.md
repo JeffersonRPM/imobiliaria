@@ -1,3 +1,6 @@
+## Testes de rotas usando o framework Insomnia
+<img align="center" alt="Imagem do framework Insomnia" src="./doc-img-git/test-insomnia.png">
+
 ## Diagrama Entidade Relacionamento no MySQL
 <img align="center" alt="Diagrama Entidade Relacionamento no MySQL" src="./doc-img-git/entidade-relacionamento.png">
 
