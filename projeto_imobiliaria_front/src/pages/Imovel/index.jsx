@@ -1,37 +1,45 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Container, Description, Left, Profile, ProfileContact, ProfileFormContact, ProfileImg, Right, Thumb } from "./styles";
 import ImovelBanner from '../../components/ImovelBanner';
-import Card from '../../assets/card.jpg'
-import Perfil from '../../assets/perfil.png'
-import Input from '../../components/Input'
-import TextArea from '../../components/TextArea'
-import Button from '../../components/Button'
+import Perfil from '../../assets/perfil.png';
+import Input from '../../components/Input';
+import TextArea from '../../components/TextArea';
+import Button from '../../components/Button';
+import Api, { urlApi } from '../../services/Api';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Imovel = () => {
+    const { slug } = useParams();
+    const [dataimovel, setDataImovel] = useState([]);
+
+    useEffect(() => {
+        Api.get(`/listimovel/${slug}`)
+            .then((response) => {
+                setDataImovel(response.data);
+            })
+            .catch(() => {
+                console.log('Erro: Erro ao Listar o Imóvel!')
+            })
+    }, [slug])
+
+    const { tipo, cidade, endereco, descricao, thumb, name, telefone, email, /*userid*/} = dataimovel;
+
     return (
         <Fragment>
-            <ImovelBanner />
+            <ImovelBanner 
+                tipo={tipo}
+                descricao={descricao}
+                thumb={thumb}
+            />
             <Container>
                 <Left>
                     <Thumb>
-                        <img src={Card} alt="Imagem do apartamento" />
+                        <img src={`${urlApi}/uploads/${thumb}`} alt="" />
                     </Thumb>
                     <Description>
-                        <h3>Apartamento de 3 Quartos com Vista Deslumbrante</h3>
-                        <p>
-                            Seu novo lar espera por você neste incrível apartamento à venda. Este espaçoso e luminoso apartamento de 3 quartos oferece uma combinação perfeita de conforto, elegância e localização conveniente.
-                            <br /><br />
-                            Ao entrar, você será recebido por uma sala de estar generosa, perfeita para receber amigos e familiares. As amplas janelas proporcionam uma abundância de luz natural, destacando os detalhes de design e os acabamentos de alta qualidade em todo o espaço.
-                            <br /><br />
-                            A cozinha moderna é um convite à culinária gourmet, equipada com eletrodomésticos de última geração e uma ilha central que também serve como área de café da manhã. A área de jantar adjacente oferece o cenário perfeito para refeições memoráveis.
-                            <br /><br />
-                            Os três quartos são espaçosos e aconchegantes, proporcionando o ambiente ideal para descanso e relaxamento. O quarto principal possui um banheiro privativo luxuoso e amplo espaço no armário. Os outros dois quartos compartilham um banheiro bem equipado.
-                            <br /><br />
-                            Além disso, o apartamento oferece uma varanda privativa com uma vista deslumbrante da cidade, proporcionando o local ideal para relaxar após um longo dia.
-                            <br /><br />
-                            Localizado em uma área residencial tranquila, mas ainda assim convenientemente próximo a escolas, parques e centros comerciais, este apartamento é uma oportunidade única. Com estacionamento dedicado e uma equipe de segurança 24 horas, você terá a tranquilidade que merece.
-                            <br /><br />
-                            Esta é sua chance de adquirir um lar que oferece tanto conforto quanto estilo. Não perca esta oportunidade. Agende uma visita e descubra todas as características impressionantes que este apartamento tem a oferecer.</p>
+                        <h3>{tipo}</h3>
+                        <h5>{`${endereco}, ${cidade}`}</h5>
+                        <p>{descricao}</p>
                     </Description>
                 </Left>
                 <Right>
@@ -39,7 +47,7 @@ const Imovel = () => {
                         <ProfileImg>
                             <img src={Perfil} alt="Foto de perfil" />
                         </ProfileImg>
-                        <h3>Oliver Mendes</h3>
+                        <h3>{name}</h3>
                     </Profile>
                     <p className='userDesc'>Com uma paixão por design contemporâneo, transformei este espaço em uma obra-prima de elegância, equilibrando modernidade e conforto.
                         <br /><br />
@@ -47,15 +55,15 @@ const Imovel = () => {
                     </p>
                     <ProfileContact>
                         <h3>Informações</h3>
-                        <p>(98) 7654-3210</p>
-                        <p>teste@teste.com</p>
+                        <p>{telefone}</p>
+                        <p>{email}</p>
                     </ProfileContact>
                     <ProfileFormContact>
                         <h3>Contate o anunciante</h3>
                         <form>
-                            <Input type="text" placeholder='Nome' maxlength="40"/>
-                            <Input type="text" placeholder='E-mail' maxlength="40"/>
-                            <TextArea name="" id="" cols="30" rows="10" placeholder='Mensagem' maxlength="800"/>
+                            <Input type="text" placeholder='Nome' maxLength={40} />
+                            <Input type="text" placeholder='E-mail' maxLength={40} />
+                            <TextArea name="" id="" cols="30" rows="10" placeholder='Mensagem' maxLength={800} />
                             <Button>Enviar mensagem</Button>
                         </form>
                     </ProfileFormContact>

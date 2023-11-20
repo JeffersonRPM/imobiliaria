@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import BgCover from '../../assets/bg-cover.jpg'
 
 export const Container = styled.div`
     padding: 50px 150px;
     position: relative;
     background-size: cover;
     background-position: center;
-    background-image: url(${BgCover});
     
     &::before {
         background-color: rgba(0,0,0,0.5);

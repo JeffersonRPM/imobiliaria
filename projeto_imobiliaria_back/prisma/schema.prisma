@@ -11,11 +11,12 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
+  id       Int       @id @default(autoincrement())
   name     String
-  email    String   @unique
+  email    String    @unique
   password String
   Imovel   Imovel[]
+  Message  Message[]
 
   @@map("users")
 }
@@ -29,9 +30,24 @@ model Imovel {
   uf         String?
   valor      String?
   descricao  String?
-  userID     Int
+  name       String
+  email      String
+  telefone   String
+  slug       String
+  userId     Int
   created_at DateTime @default(now())
-  author     User     @relation(fields: [userID], references: [id])
+  author     User     @relation(fields: [userId], references: [id])
 
   @@map("imoveis")
+}
+
+model Message {
+  id              Int    @id @default(autoincrement())
+  client_name     String
+  client_email    String
+  client_mensagem String
+  userId          Int
+  author          User   @relation(fields: [userId], references: [id])
+
+  @@map("message")
 }

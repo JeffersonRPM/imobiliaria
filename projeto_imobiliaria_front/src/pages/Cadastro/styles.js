@@ -46,3 +46,7 @@ export const ContainerForm = styled.div`
     border-radius: 5px;
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
 `
+
+export const Form = styled.form`
+    width: 100%;
+`

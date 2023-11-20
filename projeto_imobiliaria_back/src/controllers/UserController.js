@@ -11,7 +11,10 @@ export default {
             let user = await prisma.user.findUnique({ where: { email } });
 
             if (user) {
-                return response.json({ message: "Usuário já existe!" });
+                return response.json({
+                    error: true,
+                    message: "Usuário já existe!"
+                });
             }
 
             const HashPassword = await hash(password, 8);
@@ -24,7 +27,11 @@ export default {
                 }
             });
 
-            return response.json(user);
+            return response.json({
+                error: false,
+                message: "Usuário cadastrado com sucesso!",
+                user
+            });
 
         } catch (error) {
             return response.json({ message: error.message })

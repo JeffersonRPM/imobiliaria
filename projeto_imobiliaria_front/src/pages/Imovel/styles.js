@@ -19,6 +19,7 @@ export const Thumb = styled.div`
     img {
         width: 100%;
         height: auto;
+        max-height: 500px;
         border-radius: 5px;
     }
 `
@@ -26,6 +27,7 @@ export const Thumb = styled.div`
 export const Description = styled.div`
 
     h3,
+    h5,
     p {
         text-align: justify;
     }
@@ -34,7 +36,14 @@ export const Description = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 30px 0;
+        margin-top: 30px;
+    }
+
+    h5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0 30px 0;
     }
 `
 
