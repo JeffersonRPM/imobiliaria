@@ -23,9 +23,10 @@ export const AppContextProvider = ({ children }) => {
                 if (!response.data.error === true) {
                     toast.success(response.data.message);
                 }
+                const id = response.data.user.id;
                 const email = response.data.user.email;
                 const payload = {
-                    token: response.data.token, email
+                    token: response.data.token, email, id
                 }
                 setUser(payload);
                 setLocalStorage(payload);
