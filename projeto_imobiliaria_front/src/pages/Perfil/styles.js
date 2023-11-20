@@ -24,7 +24,7 @@ export const Right = styled.div`
     display: flex;
     flex-direction: column;
     width: 49%;
-    padding: 0 20px 0 20px;
+    padding: 0 0 0 20px;
 
     h2 {
         text-align: center;
@@ -49,12 +49,18 @@ export const Form = styled.form`
         margin-top: 15px !important;
         margin-bottom: 25px;
     }   
+
+    input[type="number"]::-webkit-inner-spin-button, 
+    input[type="number"]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
 `
 
 export const Message = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 8px 15px;
     margin-bottom: 10px;
     background-color: var(--white);
     border-radius: 5px;

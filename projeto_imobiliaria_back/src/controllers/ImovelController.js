@@ -6,6 +6,7 @@ export default {
         try {
             const thumb = request.file.filename;
             const { id, name, email, telefone, tipo, endereco, cidade, uf, valor, descricao } = request.body;
+            
             const user = await prisma.user.findUnique({ where: { id: Number(id) } });
 
             if (!user) {
@@ -22,7 +23,6 @@ export default {
 
             const slug = slugify(tipo);
 
-
             const imovel = await prisma.imovel.create({
                 data: {
                     thumb,
@@ -36,7 +36,7 @@ export default {
                     email,
                     telefone,
                     slug,
-                    userID: user.id
+                    userId: user.id
                 }
             });
 

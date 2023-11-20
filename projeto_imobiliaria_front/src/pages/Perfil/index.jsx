@@ -5,7 +5,7 @@ import TextArea from '../../components/TextArea';
 import { Container, Form, Left, Message, Right } from "./styles";
 import Api from "../../services/Api";
 import { toast } from "react-toastify";
-import { getLocalStorage } from "../../context/utils";
+import { getLocalStorage, formatPhoneNumber } from "../../context/utils";
 
 const Perfil = () => {
     const [thumb, setThumb] = useState('');
@@ -45,10 +45,11 @@ const Perfil = () => {
 
         Api.post('/createimovel', data, headers)
             .then((response) => {
-                if (!response.data.erro === true) {
-                    toast(response.data.message);
+                if (!response.data.error === true) {
+                    toast.success(response.data.message);
+                    window.location.href='/';
                 } else {
-                    toast(response.data.message);
+                    toast.error(response.data.message);
                 }
             })
             .catch(() => {
@@ -59,7 +60,7 @@ const Perfil = () => {
         <Container>
             <Left>
                 <h2>Minhas mensagens</h2>
-                {message.map((item, index) => (
+                {message && message.map((item, index) => (
                     <Message key={index}>
                         <span>Nome: {item.client_name}</span>
                         <span>Email: {item.client_email}</span>
@@ -96,7 +97,19 @@ const Perfil = () => {
                         type="text"
                         name="telefone"
                         placeholder="Informe o telefone de contato  •  Ex: (99) 9 9999-9999"
-                        onChange={(e) => setTelefone(e.target.value)}
+                        onKeyPress={(e) => {
+                            const keyCode = e.keyCode || e.which;
+                            const keyValue = String.fromCharCode(keyCode);
+                            if (!/^\d+$/.test(keyValue))
+                                e.preventDefault();
+                        }}
+                        onInput={(e) => {
+                            const val = e.target.value;
+                            const formatted = formatPhoneNumber(val);
+                            e.target.value = formatted;
+                            setTelefone(formatted);
+                        }}
+                        maxLength={11}
                         required
                     />
                     <Input
@@ -124,17 +137,20 @@ const Perfil = () => {
                         type="text"
                         name="uf"
                         placeholder="UF"
+                        onInput={(e) => {
+                            e.target.value = e.target.value.replace(/[^a-zA-Z]/g, '').toUpperCase();
+                        }}
                         onChange={(e) => setUf(e.target.value)}
+                        maxLength={2}
                         required
                     />
                     <Input
-                        type="text"
+                        type="number"
                         name="valor"
                         placeholder="Informe a valor do imóvel  •  Ex: 500,00"
                         onChange={(e) => setValor(e.target.value)}
                         required
                     />
-
                     <TextArea
                         name="descricao"
                         cols="30"

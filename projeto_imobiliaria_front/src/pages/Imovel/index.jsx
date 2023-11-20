@@ -7,6 +7,7 @@ import TextArea from '../../components/TextArea';
 import Button from '../../components/Button';
 import Api, { urlApi } from '../../services/Api';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { toast } from 'react-toastify';
 
 const Imovel = () => {
     const { slug } = useParams();
@@ -22,11 +23,31 @@ const Imovel = () => {
             })
     }, [slug])
 
-    const { tipo, cidade, endereco, descricao, thumb, name, telefone, email, /*userid*/} = dataimovel;
+    const { tipo, cidade, endereco, descricao, thumb, name, telefone, email, userId } = dataimovel;
+
+    const [client_name, setClientName] = useState('');
+    const [client_email, setClientEmail] = useState('');
+    const [client_mensagem, setClientMensagem] = useState('');
+
+    const dataMessage = { client_name, client_email, client_mensagem, userId };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        Api.post('/createmessage', dataMessage)
+            .then((response) => {
+                if (!response.data.error === true) {
+                    toast.success(response.data.message);
+                } else {
+                    toast.error(response.data.message);
+                }
+            })
+            .catch(() => {
+                console.log('Erro: Erro no Sistema!')
+            })
+    };
 
     return (
         <Fragment>
-            <ImovelBanner 
+            <ImovelBanner
                 tipo={tipo}
                 descricao={descricao}
                 thumb={thumb}
@@ -49,10 +70,6 @@ const Imovel = () => {
                         </ProfileImg>
                         <h3>{name}</h3>
                     </Profile>
-                    <p className='userDesc'>Com uma paixão por design contemporâneo, transformei este espaço em uma obra-prima de elegância, equilibrando modernidade e conforto.
-                        <br /><br />
-                        A cozinha é o coração da casa, refletindo minha paixão pela culinária gourmet. Adoro receber amigos aqui. A varanda oferece uma vista espetacular, tornando-se meu refúgio tranquilo no centro da cidade.
-                    </p>
                     <ProfileContact>
                         <h3>Informações</h3>
                         <p>{telefone}</p>
@@ -60,10 +77,17 @@ const Imovel = () => {
                     </ProfileContact>
                     <ProfileFormContact>
                         <h3>Contate o anunciante</h3>
-                        <form>
-                            <Input type="text" placeholder='Nome' maxLength={40} />
-                            <Input type="text" placeholder='E-mail' maxLength={40} />
-                            <TextArea name="" id="" cols="30" rows="10" placeholder='Mensagem' maxLength={800} />
+                        <form onSubmit={handleSubmit} autoComplete='off'>
+                            <Input type="hidden" name="userId" value={userId} />
+                            <Input type="text" name="client_name" placeholder='Nome'
+                                onChange={(e) => setClientName(e.target.value)}
+                                maxLength={40} />
+                            <Input type="text" name="client_email" placeholder='E-mail'
+                                onChange={(e) => setClientEmail(e.target.value)}
+                                maxLength={40} />
+                            <TextArea name="client_mensagem" id="" cols="30" rows="10" placeholder='Mensagem'
+                                onChange={(e) => setClientMensagem(e.target.value)}
+                                maxLength={800} />
                             <Button>Enviar mensagem</Button>
                         </form>
                     </ProfileFormContact>
