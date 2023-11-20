@@ -13,7 +13,8 @@ export const Img = styled.div`
 
     img {
         width: 100%;
-        height: auto;
+        height: 180px;
+        object-fit: cover;
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
     }

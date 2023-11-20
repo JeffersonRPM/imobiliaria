@@ -47,7 +47,7 @@ export const ContainerForm = styled.div`
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
 `
 
-export const Form = styled.div`
+export const Form = styled.form`
     button {
        margin-bottom: 25px;
     }
