@@ -46,10 +46,10 @@ const Perfil = () => {
         Api.post('/createimovel', data, headers)
             .then((response) => {
                 if (!response.data.error === true) {
-                    toast.success(response.data.message);
-                    window.location.href='/';
-                } else {
                     toast.error(response.data.message);
+                } else {
+                    toast.success(response.data.message);
+                    setTimeout(function(){ window.location.href='/'; }, 4000); 
                 }
             })
             .catch(() => {
