@@ -35,7 +35,7 @@ CREATE TABLE `message` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `client_name` VARCHAR(191) NOT NULL,
     `client_email` VARCHAR(191) NOT NULL,
-    `client_mensagem` VARCHAR(191) NOT NULL,
+    `client_mensagem` VARCHAR(3000) NOT NULL,
     `userId` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)

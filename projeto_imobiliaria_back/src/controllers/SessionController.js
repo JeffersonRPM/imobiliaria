@@ -11,13 +11,19 @@ export default {
             const user = await prisma.user.findUnique({ where: { email } });
 
             if (!user) {
-                return response.json({ message: "E-mail ou senha incorretos!" })
+                return response.json({
+                    error: true,
+                    message: "E-mail ou senha incorretos!",
+                })
             }
 
             const checkPassword = await compare(password, user.password);
 
             if (!checkPassword) {
-                return response.json({ message: "E-mail ou senha incorretos!" })
+                return response.json({
+                    error: true,
+                    message: "E-mail ou senha incorretos!",
+                })
             }
 
             const token = jwt.sign({ id: user.id }, "202cb962ac59075b964b07152d234b70", {

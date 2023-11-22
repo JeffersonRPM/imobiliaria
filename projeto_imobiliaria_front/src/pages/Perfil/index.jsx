@@ -49,7 +49,7 @@ const Perfil = () => {
                     toast.error(response.data.message);
                 } else {
                     toast.success(response.data.message);
-                    setTimeout(function(){ window.location.href='/'; }, 4000); 
+                    setTimeout(function () { window.location.href = '/'; }, 4000);
                 }
             })
             .catch(() => {
