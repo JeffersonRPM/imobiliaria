@@ -4,6 +4,15 @@ export const Container = styled.div`
     padding: 20px 150px;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        padding: 25px 20px;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        padding: 20px 100px;
+    }
 `
 
 export const Left = styled.div`
@@ -11,6 +20,15 @@ export const Left = styled.div`
     padding: 10px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 5px;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        width: 50%;
+    }
 `
 
 export const Thumb = styled.div`
@@ -45,6 +63,16 @@ export const Description = styled.div`
         align-items: center;
         margin: 10px 0 30px 0;
     }
+
+    @media (max-width: 480px) {
+        h3 {
+            margin-top: 15px;
+        }
+
+        h5 {
+            margin: 10px 0 15px 0;
+        }
+    }
 `
 
 export const Right = styled.div`
@@ -56,6 +84,14 @@ export const Right = styled.div`
 
     p {
         margin-bottom: 15px;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        width: 48%;
     }
 `
 
@@ -84,11 +120,23 @@ export const ProfileContact = styled.div`
     h3 {
         margin-top: 30px;
     }
+
+    @media (max-width: 480px) {
+        h3 {
+            margin-top: 15px;
+        }
+    }
 `
 
 export const ProfileFormContact = styled.div`
     h3{
         margin-top: 30px;
         margin-bottom: 15px;
+    }
+
+    @media (max-width: 480px) {
+        h3 {
+            margin-top: 15px;
+        }
     }
 `

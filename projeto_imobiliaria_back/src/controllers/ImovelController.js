@@ -13,7 +13,7 @@ export default {
                 return response.json({ message: "Usuário não encontrado!" });
             }
 
-            const slugify = str =>
+            let slugify = str =>
                 str
                     .toLowerCase()
                     .trim()
@@ -21,7 +21,18 @@ export default {
                     .replace(/[\s_-]+/g, '-')
                     .replace(/^-+|-+$/g, '');
 
-            const slug = slugify(tipo);
+            let slug = slugify(tipo);
+
+            const existingImovel = await prisma.imovel.findUnique({ where: { slug } });
+
+            if (existingImovel) {
+                let i = 1;
+                while (await prisma.imovel.findUnique({ where: { slug: `${slug}${i}` } })) {
+                    i++;
+                }
+                
+                slug = `${slug}${i}`;
+            }
 
             const imovel = await prisma.imovel.create({
                 data: {

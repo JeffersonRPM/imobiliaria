@@ -53,6 +53,7 @@ const Perfil = () => {
                 }
             })
             .catch(() => {
+                toast.error("Apenas imagens JPG, JPEG e PNG são suportadas.");
                 console.log("Erro: Erro ao cadastrar imóvel")
             });
     }
@@ -84,6 +85,7 @@ const Perfil = () => {
                         name="name"
                         placeholder="Informe seu nome"
                         onChange={(e) => setName(e.target.value)}
+                        maxLength={30}
                         required
                     />
                     <Input
@@ -91,12 +93,13 @@ const Perfil = () => {
                         name="email"
                         placeholder="Informe seu e-mail"
                         onChange={(e) => setEmail(e.target.value)}
+                        maxLength={30}
                         required
                     />
                     <Input
                         type="text"
                         name="telefone"
-                        placeholder="Informe o telefone de contato  •  Ex: (99) 9 9999-9999"
+                        placeholder="Informe o telefone de contato"
                         onKeyPress={(e) => {
                             const keyCode = e.keyCode || e.which;
                             const keyValue = String.fromCharCode(keyCode);
@@ -115,8 +118,9 @@ const Perfil = () => {
                     <Input
                         type="text"
                         name="tipo"
-                        placeholder="Informe o tipo do imóvel  •  Ex: Casa, Apartamento"
+                        placeholder="Informe o tipo do imóvel"
                         onChange={(e) => setTipo(e.target.value)}
+                        maxLength={13}
                         required
                     />
                     <Input
@@ -124,6 +128,7 @@ const Perfil = () => {
                         name="endereco"
                         placeholder="Informe o endereço do imóvel"
                         onChange={(e) => setEndereco(e.target.value)}
+                        maxLength={30}
                         required
                     />
                     <Input
@@ -132,6 +137,7 @@ const Perfil = () => {
                         placeholder="Informe a cidade do imóvel"
                         onChange={(e) => setCidade(e.target.value)}
                         required
+                        maxLength={15}
                     />
                     <Input
                         type="text"
@@ -147,8 +153,9 @@ const Perfil = () => {
                     <Input
                         type="number"
                         name="valor"
-                        placeholder="Informe a valor do imóvel  •  Ex: 500,00"
+                        placeholder="Informe a valor do imóvel"
                         onChange={(e) => setValor(e.target.value)}
+                        maxLength={10}
                         required
                     />
                     <TextArea

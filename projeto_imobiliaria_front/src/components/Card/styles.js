@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 24%;
+    width: 32.5%;
     margin-bottom: 12px;
     background-color: var(--white);
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
     border-radius: 5px;
+
+    @media (max-width: 480px) {
+        min-width: 100%;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        min-width: 49%;
+    }
 `
 
 export const Img = styled.div`
