@@ -43,7 +43,7 @@ export const Thumb = styled.div`
 `
 
 export const Description = styled.div`
-
+    word-wrap: break-word; 
     h3,
     h5,
     p {
