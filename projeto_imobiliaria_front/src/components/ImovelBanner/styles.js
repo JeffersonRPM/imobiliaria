@@ -31,6 +31,7 @@ export const Text = styled.div`
     width: 55%;
     position: relative;
     z-index: 1;
+    word-wrap: break-word; 
 
     h2 {
         color: var(--white);
