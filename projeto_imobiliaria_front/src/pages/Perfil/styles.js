@@ -4,6 +4,15 @@ export const Container = styled.div`
     padding: 20px 150px;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 480px) {
+        flex-direction: column-reverse;
+        padding: 25px 20px;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        padding: 20px 100px;
+    }
 `
 
 export const Left = styled.div`
@@ -18,6 +27,16 @@ export const Left = styled.div`
         text-align: center;
         margin: 25px 0 25px 0;
     }
+
+    @media (max-width: 480px) {
+        width: 100%;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
 `
 
 export const Right = styled.div`
@@ -28,6 +47,18 @@ export const Right = styled.div`
 
     h2 {
         text-align: center;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        padding: 0 0 25px 0;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        padding: 0;
+        h2 {
+            font-size: 1.5rem;
+        }
     }
 `
 
@@ -66,6 +97,8 @@ export const Message = styled.div`
     border-radius: 5px;
     border-color: var(--gray);
     border: 1px solid var(--gray);
+    overflow: auto;
+    word-wrap: break-word; 
 
     span {
         font-weight: 700;

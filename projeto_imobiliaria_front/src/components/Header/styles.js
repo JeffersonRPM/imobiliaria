@@ -12,6 +12,26 @@ export const Container = styled.div`
     a {
         color: var(--black);
     }
+
+    @media (max-width: 480px) {
+        padding: 25px;
+
+        img {
+            margin: 0px !important;
+        }
+
+        li {
+            border: none !important;
+        }
+        
+        span {
+            display: none;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        padding: 25px 100px;
+    }
 `
 
 export const Logo = styled.div`
@@ -46,7 +66,7 @@ export const Menu = styled.div`
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        border: 1px solid var(--gray);
+        border: 1px solid var(--black);
         border-radius: 5px;
         padding: 7px 10px;
 
@@ -58,10 +78,16 @@ export const Menu = styled.div`
    
     img {
         width: 25px;
-        margin-right: 10px;        
+        margin-right: 10px;    
     }
 
     span {
         font-weight: 700;
+    }
+
+    @media (max-width: 480px) {
+        li {
+            padding: 0;
+        }
     }
 `

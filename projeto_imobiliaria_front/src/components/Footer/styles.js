@@ -9,6 +9,14 @@ export const Container = styled.div`
     background-color: var(--gray);
     height: 150px;
     border-top: 1px solid rgba(0,0,0,0.1);
+
+    @media (max-width: 480px) {
+        padding: 25px 20px;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        padding: 25px 50px;
+    }
 `
 
 export const Item = styled.div`
@@ -51,6 +59,10 @@ export const Termo = styled.div`
 
     span {
         margin: 0px 10px;
+    }
+
+    @media (max-width: 480px) {
+        display: none;
     }
 `
 

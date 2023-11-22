@@ -3,6 +3,7 @@ import BgCover from "../../assets/bg-cover.jpg"
 
 export const Container = styled.div`
     padding: 200px 150px;
+    min-height: calc(100vh - 56px);
     position: relative;
     background-size: cover;
     background-position: center;
@@ -18,6 +19,16 @@ export const Container = styled.div`
         height: 100%;
         z-index: 1;
     }
+
+    @media (max-width: 480px) {
+        display: flex;
+        padding: 25px 20px;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        display: flex;
+        padding: 200px 100px;
+    } 
 `
 
 export const Text = styled.div`
@@ -54,5 +65,30 @@ export const Text = styled.div`
             color: var(--black);
             transition: all 300ms ease-in-out;
         }
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        h2 { 
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
     }
 `

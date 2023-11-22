@@ -29,11 +29,11 @@ model Imovel {
   cidade     String?
   uf         String?
   valor      String?
-  descricao  String?
+  descricao  String?  @db.VarChar(3000)
   name       String
   email      String
   telefone   String
-  slug       String
+  slug       String   @unique
   userId     Int
   created_at DateTime @default(now())
   author     User     @relation(fields: [userId], references: [id])
@@ -45,7 +45,7 @@ model Message {
   id              Int    @id @default(autoincrement())
   client_name     String
   client_email    String
-  client_mensagem String
+  client_mensagem String @db.VarChar(3000)
   userId          Int
   author          User   @relation(fields: [userId], references: [id])
 

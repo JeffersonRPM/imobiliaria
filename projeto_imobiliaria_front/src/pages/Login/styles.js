@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    min-height: 100vh;
+    min-height: calc(100vh - 56px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +37,14 @@ export const Container = styled.div`
 
     p {
         margin-bottom: 15px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 25px 20px;
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px){
+        padding: 100px 100px;
     }
 `
 
