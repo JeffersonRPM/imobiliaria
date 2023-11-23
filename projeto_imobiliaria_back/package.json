@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node src/app.js"
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node ./src/app.js"
   },
   "keywords": [],
   "author": "",
