@@ -49,6 +49,11 @@ yarn dev
 DATABASE_URL="mysql://root:1234@localhost:3306/imobiliaria"
 ```
 
+## Caso yarn não de permissão
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
 ## Extensões VS Code
 * `Auto import`
 * `Axios Snippets`
