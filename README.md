@@ -44,6 +44,11 @@ npm start
 yarn dev
 ```
 
+## Arquivo .env do back-end
+```
+DATABASE_URL="mysql://root:1234@localhost:3306/imobiliaria"
+```
+
 ## Extensões VS Code
 * `Auto import`
 * `Axios Snippets`
